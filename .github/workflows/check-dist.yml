@@ -47,3 +47,20 @@ jobs:
             exit 1
           fi
         id: diff
+
+  check-bin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build goveralls binaries
+        run: make GO="$PWD/run-in-docker.sh go" all
+
+      - name: Compare the expected and actual bin/ directories
+        run: |
+          if [ "$(git diff --name-only bin/ | wc -l)" -gt "0" ]; then
+            echo "Detected uncommitted changes after build. See status below:"
+            git diff --name-only bin/
+            exit 1
+          fi
