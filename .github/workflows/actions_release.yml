@@ -1,0 +1,49 @@
+name: Release GitHub Actions
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag for the release"
+        required: true
+      node_version:
+        description: "Node.js version to use"
+        required: false
+        default: "24"
+      script:
+        description: "Build script to run"
+        required: false
+        default: "npm run all"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-bin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build goveralls binaries
+        run: make GO="$PWD/run-in-docker.sh go" all
+
+      - name: Verify binaries match committed bin/
+        run: |
+          if [ "$(git diff --name-only bin/ | wc -l)" -gt "0" ]; then
+            echo "Committed binaries do not match the build output:"
+            git diff --name-only bin/
+            exit 1
+          fi
+
+  release:
+    needs: verify-bin
+    permissions:
+      actions: read
+      id-token: write
+      contents: write
+
+    uses: step-security/reusable-workflows/.github/workflows/actions_release.yaml@v1
+    with:
+      tag: "${{ github.event.inputs.tag }}"
+      node_version: ${{ inputs.node_version || '24' }}
+      script: ${{ inputs.script || 'npm run all' }}
