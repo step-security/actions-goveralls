@@ -14,9 +14,9 @@
 Add the following step snippet to your workflows.
 
 ```yaml
-- uses: actions/checkout@v4
+- uses: actions/checkout@v7
 
-- uses: actions/setup-go@v5
+- uses: actions/setup-go@v7
   with:
     go-version: "1.21"
 - run: go test -v -coverprofile=profile.cov ./...
@@ -27,8 +27,6 @@ Add the following step snippet to your workflows.
 ```
 
 ### Parallel Job Example
-
-actions-goveralls supports [Parallel Builds Webhook](https://docs.coveralls.io/parallel-build-webhook).
 Here is an example of matrix builds.
 
 ```yaml
@@ -53,10 +51,10 @@ jobs:
           - "1.11"
 
     steps:
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v7
         with:
           go-version: ${{ matrix.go }}
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: go test -v -coverprofile=profile.cov ./...
 
       - name: Send coverage
