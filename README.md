@@ -2,7 +2,7 @@
 
 # step-security/actions-goveralls
 
-[![test](https://github.com/step-security/actions-goveralls/workflows/test/badge.svg?branch=main)](https://github.com/step-security/actions-goveralls/actions)
+[![test](https://github.com/step-security/actions-goveralls/actions/workflows/test.yml/badge.svg)](https://github.com/step-security/actions-goveralls/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/step-security/actions-goveralls/badge.svg)](https://coveralls.io/github/step-security/actions-goveralls)
 
 [Coveralls](https://coveralls.io/) GitHub Action with Go integration powered by [mattn/goveralls](https://github.com/mattn/goveralls).
