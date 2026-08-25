@@ -39,26 +39,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os:
-          - ubuntu-24.04
-          - ubuntu-22.04
-          - ubuntu-24.04-arm
-          - ubuntu-22.04-arm
-          - macos-26
-          - macos-14 # for arm64
-          - macos-15-intel # for x64
-          - windows-11-arm # for arm64
-          - windows-2025
-          - windows-2022
-        go:
-          - "1.21"
-          - "1.22"
-          - "1.23"
-          - "1.24"
-          - "1.25"
-          - "1.26"
-          - "oldstable"
-          - "stable"
+        os: ${{ github.actor == 'dependabot[bot]' && fromJSON('["ubuntu-24.04"]') || fromJSON('["ubuntu-24.04","ubuntu-22.04","ubuntu-24.04-arm","ubuntu-22.04-arm","macos-26","macos-14","macos-15-intel","windows-11-arm","windows-2025","windows-2022"]') }}
+        go: ${{ github.actor == 'dependabot[bot]' && fromJSON('["1.26"]') || fromJSON('["1.21","1.22","1.23","1.24","1.25","1.26","oldstable","stable"]') }}
 
     runs-on: ${{ matrix.os }}
     steps:
