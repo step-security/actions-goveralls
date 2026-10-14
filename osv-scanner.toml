@@ -1,7 +1,7 @@
 [[IgnoredVulns]]
-id = "GO-2026-6179"
-reason = "Affects sumdb/tlog (GOPROXY tile verification). goveralls only imports golang.org/x/mod/modfile and never calls sumdb code at runtime."
+id = "GHSA-vfj7-8cjw-p6xm"
+reason = "braces is a dev dependency and is not used at runtime"
 
 [[IgnoredVulns]]
-id = "GO-2026-6180"
-reason = "Affects sumdb/tlog (coordinated GOPROXY+GOSUMDB attack). goveralls only imports golang.org/x/mod/modfile and never calls sumdb code at runtime."
+id = "GHSA-hp3w-g68c-fv3c"
+reason = "sprintf-js is a dev dependency and is not used at runtime"
