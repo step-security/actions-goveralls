@@ -5,8 +5,8 @@
   "action_type": "node",
   "upstream": {
     "repository": "shogo82148/actions-goveralls",
-    "synced_tag": "v1.11.2",
-    "synced_commit": "77a1912dca42260ee3e97f61bd13ea7ef40baa93",
+    "synced_tag": "v1.11.5",
+    "synced_commit": "548a2a7896df420c38df648845a5525a33f82585",
     "archived": false
   },
   "build": {

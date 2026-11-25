@@ -1,6 +1,6 @@
 module github.com/step-security/actions-goveralls
 
-go 1.27.0
+go 1.27.3
 
 require (
 	github.com/mattn/goveralls v0.0.12 // indirect
