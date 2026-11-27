@@ -1,7 +1,7 @@
 [[IgnoredVulns]]
-id = "GHSA-vfj7-8cjw-p6xm"
-reason = "braces is a dev dependency and is not used at runtime"
+id = "GHSA-3g3m-2fjr-6pw4"
+reason = "glob is a dev dependency (via jest) and is not used at runtime; fix requires glob 14, which jest does not yet support"
 
 [[IgnoredVulns]]
-id = "GHSA-hp3w-g68c-fv3c"
-reason = "sprintf-js is a dev dependency and is not used at runtime"
+id = "GHSA-g3hv-75wg-m249"
+reason = "minimatch is a dev dependency (via jest) and is not used at runtime; fix requires minimatch 11, which jest does not yet support"
